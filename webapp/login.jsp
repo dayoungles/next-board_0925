@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/board/form"> GO TO WRITING </a>
+	<h1>LOGIN</h1>
+	<form action=/login method="post" enctype="multipart/form-data">
+		<input type=textbox name=id placeholder="ID"><br> 
+		<input type=password name=password placeholder="PASSWORD"><br>
+		<input type = "submit" value = "Log in">
+	</form>
 </body>
 </html>

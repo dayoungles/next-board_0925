@@ -24,9 +24,11 @@ public class BoardController {
 		//board라는 변수가 없으므로 board라는 변수를 사용하는 것은 전부 ""로 뜬다.
 		return "form";
 	}
-   //list
+	
+   //list로 보내는 메소
 	@RequestMapping("")
 	public String list(Model model) {
+		
 		Iterable<Board> iterable = boardRepository.findAll();
 		model.addAttribute("list", iterable);
 		return "list";

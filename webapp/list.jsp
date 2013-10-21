@@ -10,16 +10,13 @@
 </head>
 
 <body>
-	<h1>사진 리스트</h1>
-	<a href="/board/form">글쓰기</a>
+	<h1>LIST</h1>
+	<a href="/board/form"><input type = button value = "WRITING"> </a>
 	<c:forEach var="document" items="${list}">
 		<li><a href="/board/${document.id}"></a>
-
 			<p>
-				<a href="/board/${document.id}">${document.title}</a>
-			</p>
-			<p>
-				<a href="/board/${document.id}">${document.contents}
+				<a href="/board/${document.id}">${document.title}</a><br>
+				<a href="/board/${document.id}">${document.contents}</a>
 			</p></li>
 	</c:forEach>
 
