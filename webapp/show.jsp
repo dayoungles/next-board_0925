@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/board"><input type=button value="LIST"></a>
+	<a href="/board/list"><input type=button value="LIST"></a>
 	<a href="./${id}/modify"><button class="modify">수정</button></a>
 	<a href="./${id}/delete"><button class="delete">삭제</button></a>
 	<h1>${board.title}</h1>

@@ -8,8 +8,8 @@
 </head>
 <body>
 	<h1>SIGN UP</h1>
-	<form action="board/${id}/signUp" method="post">
-		<div id=sign style="border: 3px grey solid; width: 500px "><!-- margin left설 -->
+	<form action="/user/join" method="post">
+		<div id=sign style="border: 3px gray solid; width: 500px "><!-- margin left설 -->
 			<br> ID: <input type="text" name="id">줄 정렬..?<br>
 			Password: <input type="password" name="password"><br>
 			E-mail: <input type="text" name="email"><br> <input

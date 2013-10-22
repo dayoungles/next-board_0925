@@ -8,10 +8,12 @@
 </head>
 <body>
 	<h1>LOGIN</h1>
-	<form action=/login method="post" enctype="multipart/form-data">
+	<form action=/user/login_check method="post" enctype="multipart/form-data">
 		<input type=textbox name=id placeholder="ID"><br> 
 		<input type=password name=password placeholder="PASSWORD"><br>
 		<input type = "submit" value = "Log in">
 	</form>
+<br>
+	<a href = "/user/signup">SIGN UP HERE!</a>
 </body>
 </html>

@@ -2,7 +2,10 @@ package org.nhnnext.web;
 
 
 
+import java.util.List;
+
 import org.nhnnext.repository.BoardRepository;
+import org.nhnnext.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +19,12 @@ import support.FileUploader;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+	
 	@Autowired
 	private BoardRepository boardRepository;
+	
+	@Autowired
+	private CommentRepository commentRepository;
 	
 	@RequestMapping("/form")
 	public String form() {
@@ -26,7 +33,7 @@ public class BoardController {
 	}
 	
    //list로 보내는 메소
-	@RequestMapping("")
+	@RequestMapping("/list")
 	public String list(Model model) {
 		
 		Iterable<Board> iterable = boardRepository.findAll();
@@ -63,7 +70,14 @@ public class BoardController {
 	@RequestMapping("/{id}/delete")
 	public String delete(@PathVariable Long id, Model model){
 		Board findedBoard = boardRepository.findOne(id);
+		List<Comment> commentList= findedBoard.getComments();
+		if(commentList != null){
+			for(Comment comment : commentList) {
+				commentRepository.delete(comment);
+			}
+		}
+
 		boardRepository.delete(findedBoard);
-		return "redirect:/board/"; 
+		return "redirect:/board/list"; 
 	}
 }

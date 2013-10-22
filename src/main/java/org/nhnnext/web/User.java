@@ -2,10 +2,12 @@ package org.nhnnext.web;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class User {
 	
+	@Id
 	@Column(length =30, nullable = false)
 	private String id;
 	
@@ -26,7 +28,7 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-
+/////////////////////
 	public void setPassword(String password) {
 		this.password = password;
 	}
