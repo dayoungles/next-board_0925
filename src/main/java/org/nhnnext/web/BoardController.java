@@ -76,8 +76,9 @@ public class BoardController {
 				commentRepository.delete(comment);
 			}
 		}
-
+		findedBoard.getComments().clear();
 		boardRepository.delete(findedBoard);
+
 		return "redirect:/board/list"; 
 	}
 }
