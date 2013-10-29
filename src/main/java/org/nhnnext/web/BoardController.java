@@ -26,13 +26,14 @@ public class BoardController {
 	@Autowired
 	private CommentRepository commentRepository;
 	
+	
 	@RequestMapping("/form")
 	public String form() {
 		//board라는 변수가 없으므로 board라는 변수를 사용하는 것은 전부 ""로 뜬다.
 		return "form";
 	}
 	
-   //list로 보내는 메소
+   //list로 보내는 메소드 
 	@RequestMapping("/list")
 	public String list(Model model) {
 		
@@ -49,7 +50,7 @@ public class BoardController {
 		Board savedBoard = boardRepository.save(board);
 		//return  "redirect:http://www.naver.com" /*"form"*/;// redirect의 경우 정보 재전송 없이 새로고침이 가능
 		//return "form";
-		return "redirect:/board/" + savedBoard.getId();
+		return "redirect:/board/list";
 	}
 	
 	@RequestMapping("/{id}")
