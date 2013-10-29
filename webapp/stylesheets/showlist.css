@@ -32,6 +32,61 @@ div.top_inside>h2:nth-of-type(3){
 	float: right;
 	margin: 5px;
 }
+
+div.list {
+	margin-top:20px;
+}
+div.writing {
+	position: relative;
+	top: -50px;
+	
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+	padding: 30px 20px 10px;
+	width: 800px;
+	margin: 20px auto;
+	border: 1px grey solid;
+	background-color:#f6dc92;	
+}
+div.formArea {
+	margin: 0px auto;
+}
+
+.formArea input[type="text"]{
+	background-color: #f6dc92;
+	margin: 0px auto;/*왜 가운데 정렬 안될 까? >>div 자체를 가운데 정렬했어야..  */
+	padding: 2px;
+	width: 700px;
+}
+
+.formArea textarea {
+	background-color: #f6dc92;
+	
+	margin: 10px auto;
+	resize: none;
+	width: 700px;
+	height: 300px;
+	
+}
+
+.formArea input[type= "submit"],[type = "reset"]{
+	margin: 5px auto;
+	padding: 2px;
+	background-color: #d0bfe8;
+	color: black;
+	border-radius: 5px;
+	
+	
+}
+
+.formArea input [type = "file"]{
+	text-align: right;
+	margin: 0 auto;
+	
+} 
+
 div.spring {
 	
 	background-image:url("/img/spring.png");
