@@ -63,7 +63,7 @@ public class BoardController {
 	public String modify(@PathVariable Long id, Model model){
 		Board findedBoard = boardRepository.findOne(id);
 		model.addAttribute("board", findedBoard);
-		model.addAttribute("modify", 1);
+//		model.addAttribute("modify", 1);
 		return "form";
 	}
 	

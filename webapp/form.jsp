@@ -1,25 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/newWrite.css" />
 </head>
 <body>
-	<h2>Post picture</h2>
-		<form action="/board/write" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="id" value="${id}">
-			<input type="hidden" name="modify" value="${modify}">
-			제목 : <input type="text" name="title" size=40 value="${board.title}"><br />
+		<div id = "top">
+			<div id = "top-middle">
+				<div id = "top-m-l">
+					<p>WRITING PAGE</p>
+				</div>
+				<div id = "top-m-r">
+					<p class = top>LOG OUT</p>
+					<p class = top>LIST</p>
+				</div>
+			</div>
+		</div>
+	<div id ="wrap">
 			
-			<textarea name="contents" rows="10" cols="50">${board.contents}</textarea>
-				
+		<div id = "title">
+			<h1>New Post</h1> 
+		</div>
+	
+	<div id="formArea">
+		<form action="/board/write" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="${id}"> 
+			<input type="hidden" name="modify" value="${modify}">
+			<input type="text" name="title" size=50 value="${board.title}" placeholder="제목을 넣어보시게"><br />
+
+			<textarea name="contents" rows="20" cols="50" placeholder= "내용을 넣으시게">${board.contents}</textarea>
 			<br />
 			<c:if test="${board.fileName != null}"></c:if>
-			 <input type="file" name="file" /><br> <input
-				type="submit" value="보내기">
+			
+			<div id="bottom">
+				<input type="file" name="file"><br>
+				 <input type="submit" value="SEND">
+				  <input type="reset" value="RESET">
+			  </div>
 		</form>
+	</div>
+	
+	</div>
 </body>
 </html>
+
+<!-- form
+
+border: 1px red solid;
+margin: 5px auto;
+
+
+
+ -->

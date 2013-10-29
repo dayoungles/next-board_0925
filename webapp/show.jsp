@@ -7,28 +7,60 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/show.css" />
 </head>
 <body>
-	<a href="/board/list"><input type=button value="LIST"></a>
-	<a href="./${id}/modify"><button class="modify">수정</button></a>
-	<a href="./${id}/delete"><button class="delete">삭제</button></a>
-	<h1>${board.title}</h1>
-	<br>
-	<c:if test="${board.fileName != null}">
-		<img src="/images/${board.fileName}" width=400>
-		<br>
-		<br>
-
-	</c:if>
-	<div id="contents" style='border: 3px solid black; width: 400px'>
-		${board.contents}
+	<div id ="top">
+		<div id ="top-middle">
+			<div id = "top-m-l">
+				<p class= top>SHOW</p>
+			</div>
+			<div id = "top-m-r">
+				<a href></a><p class = top>LOG OUT</p>
+				<p class = top>LIST</p>
+				<p class = top>WRITE</p>
+			
+			</div>
+		</div>
 	</div>
-	<form action ="/board/${id}/comments" method = "post">
-		<textarea name="contents" rows="2" cols="50"></textarea>
-		<input type="submit" value="comments"> <br>
-	</form>
-	<c:forEach var = "comment" items = "${board.comments }">
-		<li> ${comment.contents }</li>
-	</c:forEach>
+	
+	
+	<div id = "wrap">
+	
+		<div id = "title">
+			<h1>${board.title}</h1>
+		</div>
+		
+		
+		<div id = picture>
+			<c:if test="${board.fileName != null}">
+				<img src="/images/${board.fileName}" width=400>
+				<br>
+			</c:if>
+		</div>
+
+		<div id="contents">
+			${board.contents}
+		</div>
+
+		<div id = "below_content">
+			<a href="./${id}/modify"><button class="modify">수정</button></a>
+			<a href="./${id}/delete"><button class="delete">삭제</button></a>
+		</div>
+		
+		<div id = getComment>
+			<form action ="/board/${id}/comments" method = "post">
+				<textarea name="contents" rows="2" cols="50"></textarea>
+				<input type="submit" value="comments"> <br>
+			</form>
+		</div>
+		
+		<div id = showComment>
+			<c:forEach var = "comment" items = "${board.comments }">
+				<li> ${comment.contents }</li>
+			</c:forEach>
+		</div>
+		
+	</div>
 </body>
 </html>

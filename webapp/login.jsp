@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>LOGIN</h1>
-	<form action=/user/login_check method="post" enctype="multipart/form-data">
+	<form action=/user/login_check method="post">
 		<input type=textbox name=id placeholder="ID"><br> 
 		<input type=password name=password placeholder="PASSWORD"><br>
 		<input type = "submit" value = "Log in">

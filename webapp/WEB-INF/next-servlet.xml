@@ -17,7 +17,7 @@
 	<mvc:resources location="/stylesheets/" mapping="/stylesheets/**" />
 
 	<mvc:resources location="/javascripts/" mapping="/javascripts/**" />
-
+	<mvc:resources location="/img/" mapping="/img/**" />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/" p:suffix=".jsp" />

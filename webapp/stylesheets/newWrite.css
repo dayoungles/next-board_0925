@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+/* System Name, CSS Version_Creater_Date */
+/* Common */ 
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:Papyrus,Dotum,AppleGothic,sans- serif;font-size:1em}
+img,fieldset{border:0}
+ul,ol{list-style:none}
+em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
+
+div#wrap {
+	margin: 20px auto;
+	width: 900px;
+	border: gray 2px solid;
+	
+}
+
+div#top {
+	height: 40px;
+	background-color: #f9b6d3;
+	color: #a76272;
+}
+div#top-middle {
+	width: 900px;
+	margin: 0px auto;
+	
+}
+div#top-m-r {
+	float: right;
+	text-align: right;
+	width: 400px;
+	margin: 3px;
+}
+
+#top-m-r p.top {
+	font-size: 20px;
+	margin: 3px;
+	width: auto;
+	float: right;
+	
+}
+div#top-m-l {
+	float: left;
+	font-size: 20px;
+	width: 200px;
+	margin: 10px;
+}
+
+div#title {
+
+	margin: 5px auto;
+	padding: 5px;
+	text-align: center;
+	width: 500px;
+}
+
+div#formArea {
+	margin: 5px auto;
+	width: 500px;
+}
+
+div #bottom {
+	text-align: center;
+	width: 500px;
+}
+
+#top-m-r input[type= "button"]{
+	padding: 3px;
+	background-color: #efa6b7;
+	border-radius: 3px;
+}
+#formArea input[type= "text"]{
+	border: 1px gray solid;
+	margin: 5px 0px auto auto;/*왜 가운데 정렬 안될 까? >>div 자체를 가운데 정렬했어야..  */
+	padding: 2px;
+	width: 500px;
+}
+
+#formArea textarea {
+	
+	border: 3px gray solid;
+	margin: 10px auto;
+	resize: none;
+	width: 500px;
+	height: 300px;
+	
+}
+
+#formArea input[type= "submit"],[type = "reset"]{
+	margin: 10px auto;
+	padding: 5px;
+	background-color: #a96374;
+	color: white;
+	border-radius: 5px;
+	
+}
+
+#formArea input [type = "file"]{
+	text-align: right;
+	margin: 0 auto;
+}
