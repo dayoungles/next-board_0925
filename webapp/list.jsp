@@ -45,17 +45,17 @@
 			<c:forEach var="board" items="${list}">
 				<div class= "spring"></div>
 				<div class="page">
-					<div id="title">
+					<div class="title">
 						<h1>${board.title}</h1>
 					</div>
-					<div id=picture>
+					<div class=picture>
 						<c:if test="${board.fileName != null}">
 							<img src="/images/${board.fileName}" width=400>
 							<br>
 						</c:if>
 					</div>
 	
-					<div id="contents">${board.contents}</div>
+					<div class="content">${board.contents}</div>
 				</div>
 			</c:forEach>
 		</div>

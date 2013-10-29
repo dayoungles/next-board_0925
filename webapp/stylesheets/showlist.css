@@ -112,4 +112,42 @@ div.page {
 	margin: 20px auto;
 	border: 1px grey solid;
 	background-color:#f6dc92;
+	height: auto;
+	overflow:hidden;
 }
+
+div.title {
+	text-align: center;
+}
+
+div.picture{
+	width: 400px;
+	
+	float: left;
+	margin: 10px;
+	
+}
+div.content{
+	width: 300px;
+	float: right;
+	margin-right: 10px;
+	word-break:break-all;
+	text-decoration:underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
