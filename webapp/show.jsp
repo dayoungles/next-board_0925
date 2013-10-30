@@ -56,7 +56,7 @@
 		</div>
 		
 		<div id = showComment>
-			<c:forEach var = "comment" items = "${board.comments }">
+			<c:forEach var = "comment" items = "${board.comments}">
 				<li> ${comment.contents }</li>
 			</c:forEach>
 		</div>

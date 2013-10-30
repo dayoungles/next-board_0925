@@ -2,7 +2,7 @@
 /* System Name, CSS Version_Creater_Date */
 /* Common */ 
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select{margin:0;padding:0}
-body,input,textarea,select,button,table{font-family:Papyrus,Dotum,AppleGothic,sans- serif;font-size:1em}
+body,input,textarea,select,button,table{font-family:NanumPen,Dotum,AppleGothic,sans- serif;font-size:1.5em}
 img,fieldset{border:0}
 ul,ol{list-style:none}
 em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
@@ -24,13 +24,16 @@ div.top_inside {
 
 div.top_inside>h2 {
 	float: left;
+	text-decoration: none;
 	color: #ffffff;
 	margin: 5px;
 }
 
-div.top_inside>h2:nth-of-type(3){
+div.top_inside>h2:nth-of-type(2){
 	float: right;
 	margin: 5px;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 div.list {
@@ -52,6 +55,7 @@ div.writing {
 }
 div.formArea {
 	margin: 0px auto;
+	text-align: center;
 }
 
 .formArea input[type="text"]{
@@ -70,20 +74,24 @@ div.formArea {
 	height: 300px;
 	
 }
-
-.formArea input[type= "submit"],[type = "reset"]{
+.bottom {
+	text-align: center;
+}
+.bottom input[type= "submit"],[type = "reset"]{
 	margin: 5px auto;
 	padding: 2px;
 	background-color: #d0bfe8;
 	color: black;
 	border-radius: 5px;
+
 	
 	
 }
 
-.formArea input [type = "file"]{
-	text-align: right;
+.bottom input[type = "file"]{
+	
 	margin: 0 auto;
+	height: 100px;/*글씨 키우니까 창안의 글씨가..헐.*/
 	
 } 
 
@@ -134,7 +142,6 @@ div.content{
 	word-break:break-all;
 	text-decoration:underline;
 }
-
 
 
 
