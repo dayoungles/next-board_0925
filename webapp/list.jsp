@@ -22,7 +22,8 @@
 		for(var i = 0; i < showComment.length; i++ ){
 			var currentPage = showComment[i];
 			var commentsCount= currentPage.querySelectorAll('p').length;
-			console.log(commentsCount);
+			var parent = currentPage.parentNode;
+            parent.querySelector('.commentCount > span').innerText = commentsCount;
 		} 
 	}
 	
