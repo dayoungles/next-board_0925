@@ -163,6 +163,9 @@ div.get_comment{
 	width: 300px;
 }
 
+div.commentList{
+	display: none;
+}
 
 
 

@@ -14,6 +14,7 @@
 <script>
 	function initPage(){
 		countComments();
+		registerEvents();
 		console.log("loaded");
 	}
 	
@@ -27,6 +28,19 @@
 		} 
 	}
 	
+	function registerEvents(){
+		var list = document.getElementsByClassName('commentShow');
+		for(var i = 0; i < list.length; i++){
+			list[i].addEventListener('click', toggleComments, false);
+		}
+	}
+	
+	function toggleComments(e) {
+		e.preventDefault();
+		var commentList = e.target.nextElementSibling;
+		commentList.style.display = (commentList.style.display != 'block'? 'block': 'none');
+	}
+
 	window.onload=initPage;
 </script>
 </head>
@@ -95,7 +109,9 @@
 					<div class = "commentCount">
 						Number of Comments: <span></span>
 					</div>
-					<div class=commentList>
+
+					<a href="#" class="commentShow">Show me the comments</a>
+					<div class="commentList">
 						<c:forEach var="comment" items="${board.comments }">
 							<p> - ${comment.contents}</p>
 						</c:forEach>
