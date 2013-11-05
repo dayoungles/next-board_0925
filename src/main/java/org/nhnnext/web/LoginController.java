@@ -25,6 +25,7 @@ public class LoginController {
 	public String signup_form() {
 		return "signup";
 	}
+	
 	@RequestMapping(value = "/login_check", method = RequestMethod.POST)
 	public String login(String id, String password, HttpSession session) {
 		// TODO userId에 해당하는 사용를 데이터베이스에서 조회

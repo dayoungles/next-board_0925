@@ -10,6 +10,24 @@
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/showlist.css" />
+	
+<script>
+	function initPage(){
+		countComments();
+		console.log("loaded");
+	}
+	
+	function countComments(){
+		var showComment = document.querySelectorAll('.commentList');
+		for(var i = 0; i < showComment.length; i++ ){
+			var currentPage = showComment[i];
+			var commentsCount= currentPage.querySelectorAll('p').length;
+			console.log(commentsCount);
+		} 
+	}
+	
+	window.onload=initPage;
+</script>
 </head>
 
 <body>
@@ -46,6 +64,7 @@
 					</form>
 				</div>
 			</div>
+			
 			<c:forEach var="board" items="${list}">
 				<div class="spring"></div>
 				<div class="page">
@@ -66,16 +85,18 @@
 						<a href="./${board.id}/delete"><button class="delete">삭제</button></a>
 					</div>
 
-					<div class=getComment>
+					<div class=get_comment>
 						<form action="/board/${board.id}/comments" method="post">
 							<textarea name="contents" rows="2" cols="20"></textarea>
 							<input type="submit" value="comments"> <br>
 						</form>
 					</div>
-
-					<div class=showComment>
+					<div class = "commentCount">
+						Number of Comments: <span></span>
+					</div>
+					<div class=commentList>
 						<c:forEach var="comment" items="${board.comments }">
-							<li>${comment.contents }</li>
+							<p> - ${comment.contents}</p>
 						</c:forEach>
 					</div>
 				</div>

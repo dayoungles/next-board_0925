@@ -142,9 +142,26 @@ div.content{
 	word-break:break-all;
 	text-decoration:underline;
 }
+ 
+div.below_content{
+	text-align: right;
+	height: 30px;
+	width: 
+}
+.below_content button{
+		margin: 5px auto;
+	padding: 2px;
+	background-color: #d0bfe8;
+	color: black;
+	border-radius: 5px;
+	font-size: 1em;
 
+} 
 
-
+div.get_comment{
+	text-align: right;
+	width: 300px;
+}
 
 
 
