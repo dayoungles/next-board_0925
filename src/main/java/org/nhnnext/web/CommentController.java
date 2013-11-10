@@ -1,6 +1,7 @@
 package org.nhnnext.web;
 
 import org.nhnnext.repository.BoardRepository;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.nhnnext.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,11 +17,10 @@ public class CommentController {
 	@Autowired
 	private BoardRepository boardRepository;
 	
-	@RequestMapping(value = "/board/{id}/comments",method = RequestMethod.POST)
-	public String create(@PathVariable Long id, String contents){
+	@RequestMapping(value="/board/{id}/comments.json", method=RequestMethod.POST)
+	public @ResponseBody Comment create(@PathVariable Long id, String contents){
 		Board board = boardRepository.findOne(id);
 		Comment comment = new Comment(board, contents);
-		commentRepository.save(comment);
-		return "redirect:/board/list";
+		return commentRepository.save(comment);
 	}
 }
