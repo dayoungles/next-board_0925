@@ -58,13 +58,14 @@
 		request.open("POST", url, true);
 	    request.onreadystatechange = function() {
 	         if(request.readyState ==4 && request.status ==200) {
-					console.log(“응답이 왔어요~”);
+					console.log(“get response”);
 					var obj = JSON.parse(request.responseText);
 			}
 	    };
 	    request.send(oFormData);
 	    
 	}
+	
 	window.onload = initPage;
 </script>
 </head>
@@ -135,7 +136,7 @@
 							</form>
 						</div>
 						<div class="commentCount">
-							Number of Comments: <span></span>
+							Number of Comments: <span></span><!-- span적용이 안되는데 갑자기..? 내가 뭘 건드려서 여기가 영향을 받지?? -->
 						</div>
 
 						<a href="#" class="commentShow">Show me the comments</a>

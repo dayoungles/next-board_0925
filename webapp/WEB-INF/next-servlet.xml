@@ -40,5 +40,5 @@
 			</list>
 		</property>
 		<property name="ignoreAcceptHeader" value="true" />
-	</bean>
+	</bean> 
 </beans>
