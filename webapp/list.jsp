@@ -56,8 +56,14 @@
 
 		var request = new XMLHttpRequest();
 		request.open("POST", url, true);
-		request.send(oFormData);
-
+	    request.onreadystatechange = function() {
+	         if(request.readyState ==4 && request.status ==200) {
+					console.log(“응답이 왔어요~”);
+					var obj = JSON.parse(request.responseText);
+			}
+	    };
+	    request.send(oFormData);
+	    
 	}
 	window.onload = initPage;
 </script>

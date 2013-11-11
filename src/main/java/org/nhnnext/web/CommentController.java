@@ -1,5 +1,6 @@
 package org.nhnnext.web;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.nhnnext.repository.BoardRepository;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.nhnnext.repository.CommentRepository;
