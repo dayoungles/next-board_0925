@@ -10,11 +10,10 @@
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/showlist.css" />
-
 <script>
 	function initPage() {
-		countComments();
 		registerEvents();
+		countComments();
 		console.log("loaded");
 	}
 
@@ -58,10 +57,20 @@
 		request.open("POST", url, true);
 	    request.onreadystatechange = function() {
 	         if(request.readyState ==4 && request.status ==200) {
-					console.log(“get response”);
-					var obj = JSON.parse(request.responseText);
-			}
+				console.log("get response");
+				/* debugger; */
+				var obj = JSON.parse(request.responseText);
+				var comments = elementForm.parentNode.parentNode;
+				var eleCommentList = comments.getElementsByClassName("commentList");
+				console.log(eleCommentList[0]);
+				eleCommentList[0].insertAdjacentHTML("beforeend","<p>- "+obj.contents +"</p>");
+				elementForm.reset();
+				
+				countComments();
+			};
+			
 	    };
+	    
 	    request.send(oFormData);
 	    
 	}
@@ -127,6 +136,7 @@
 						<a href="./${board.id}/modify"><button class="modify">수정</button></a>
 						<a href="./${board.id}/delete"><button class="delete">삭제</button></a>
 					</div>
+					
 					<div class=comments>
 						<div class=get_comment>
 							<form action="/board/${board.id}/comments" method="post">
@@ -141,7 +151,7 @@
 
 						<a href="#" class="commentShow">Show me the comments</a>
 						<div class="commentList">
-							<c:forEach var="comment" items="${board.comments }">
+							<c:forEach var="comment" items="${board.comments}">
 								<p>- ${comment.contents}</p>
 							</c:forEach>
 						</div>
