@@ -168,9 +168,35 @@ div.commentList{
 }
 
 
+div.post{
+	width: 200px;
+	height: 140px;
+	background-color: #ffffff;
+	border: grey 1px solid;
+	margin: 10px;
+	display: inline-block;
+}
 
+div.page>div{
+	display: inline-block;
+	text-align: center;
+	margin: 0px auto;
+	width: 750px;
+	height: 150px;
+}
 
+div.thumbnail{
+	width: 160px;
+	height:100px;
+	margin: 0px auto;
+	border: black solid 1px;
+	margin-top: 5px;
+}
 
+a {/*적용 안되는 듯?  */
+	text-decoration: none;
+	text-color: black;
+}
 
 
 

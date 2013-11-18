@@ -93,6 +93,53 @@
 		</div>
 		<div class="list">
 			<div class="spring"></div>
+			<div class = page>
+				<div class="line1">
+					<div class ="post">
+						
+							<div class="thumbnail"><a href ="#">썸네일 사진</a></div>
+							<div class="title"><a href ="#">글 제목</a> </div>
+						
+					</div>
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>					
+					</div>
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>					
+					</div>
+				</div>
+				<div class ="line2">
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>					
+					</div>
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>					
+					</div>
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>
+					</div>
+				</div>
+				<div class ="line3">
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>					
+					</div>
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>					
+					</div>
+					<div class ="post">
+						<div class="thumbnail">썸네일 사진</div>
+						<div class="title">글 제목 </div>
+					</div>
+				</div>
+			</div>
+			<%-- <div class="spring"></div>
 			<!-- 쓰는 페이지 부분  -->
 			<div class="writing">
 				<div class="formArea">
@@ -116,9 +163,9 @@
 						</div>
 					</form>
 				</div>
-			</div>
+			</div> --%>
 			<!-- 글 보여주는 부분 요거 디브 어디갔징  -->
-			<c:forEach var="board" items="${list}">
+<%-- 			<c:forEach var="board" items="${list}">
 				<div class="spring"></div>
 				<div class="page">
 					<div class="title">
@@ -159,7 +206,7 @@
 					</div>
 				</div>
 
-			</c:forEach>
+			</c:forEach> --%>
 		</div>
 	</div>
 </body>
