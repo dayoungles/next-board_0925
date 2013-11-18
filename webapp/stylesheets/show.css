@@ -2,84 +2,114 @@
 /* System Name, CSS Version_Creater_Date */
 /* Common */ 
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select{margin:0;padding:0}
-body,input,textarea,select,button,table{font-family:Papyrus,Dotum,AppleGothic,sans- serif;font-size:1em}
+body,input,textarea,select,button,table{font-family: NanumPen,Dotum,AppleGothic,sans- serif;font-size:1.3em}
 img,fieldset{border:0}
 ul,ol{list-style:none}
 em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
 
-body {
-	background-color: #cab6bb;
-	
+body{
+	background-color: #d5d6e0;
 }
 
-div#top {
-	height: 40px;
-	background-color: #ef8ba3;
-	color: #a76272;
+div.top {
+	background-color: #55455d;
+	height: 50px;
 }
 
-div#top-middle {
-	width: 900px;
+div.top_inside {
+	height:40px;
+	width: 800px;
 	margin: 0px auto;
-	
-}
-div#top-m-r {
-	float: right;
-	text-align: right;
-	width: 400px;
-	margin: 3px;
 }
 
-#top-m-r p.top {
-	font-size: 20px;
-	margin: 3px;
-	width: auto;
-	float: right;
-	
-}
-div#top-m-l {
+div.top_inside>h2 {
 	float: left;
-	font-size: 20px;
-	width: 200px;
-	margin: 10px;
+	text-decoration: none;
+	color: #ffffff;
+	margin: 5px;
 }
 
-div#wrap {
+div.top_inside>h2:nth-of-type(2){
+	float: right;
+	margin: 5px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+div.spring {
+	
+	background-image:url("/img/spring.png");
+	background-position: 0px 0px;
+	height: 48px;
+	width: 745px;
+	margin: 0px auto;
+	position: relative;
+	overflow:hidden;
+	/* padding-left: 10px; */
+	z-index:2;
+}
+div.page {
+	position: relative;
+	top: -50px;
+	
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+	padding: 30px 20px 10px;
+	width: 800px;
 	margin: 20px auto;
-	width: 900px;
-	border: gray 2px solid;
-	background-color: #FFFFFF;
+	border: 1px grey solid;
+	background-color:#f6dc92;
+	height: auto;
+	overflow:hidden;
 }
 
-div#title {
+div.title {
 	text-align: center;
-	margin: 3px;
-	margin-top: 10px;
-	padding: 3px;
+	font-size:1.4em;
 }
 
-div#picture {
-	margin: 0 auto;
-	text-align: center;
-	width: 500px;
-}
-
-div#contents {
-	margin: 0 auto;
-	text-align: center;
-}
-
-div#below_content {
+div.picture{
+	width: 400px;
+	
+	float: left;
 	margin: 10px;
 	
 }
-#below_content button[]
+div.content{
+	width: 300px;
+	float: right;
+	margin-right: 10px;
+	word-break:break-all;
+	text-decoration:underline;
+	
+}
+ 
+div.below_content{
+	text-align: right;
+	height: 30px;
+	width: 
+}
+.below_content button{
+	margin: 5px auto;
+	padding: 2px;
+	background-color: #d0bfe8;
+	color: black;
+	border-radius: 5px;
+	
 
+} 
 
+div.get_comment{
+	text-align: right;
+	width: 300px;
+}
 
-
-
-
+div.commentList{
+	display: none;
+	
+}
 
 
 

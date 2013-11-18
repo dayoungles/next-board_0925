@@ -23,6 +23,7 @@ public class LoginController {
 	
 	@RequestMapping("/signup")
 	public String signup_form() {
+		
 		return "signup";
 	}
 	

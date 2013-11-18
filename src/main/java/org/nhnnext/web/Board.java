@@ -27,7 +27,6 @@ public class Board {
 	@Column
 	private String fileName;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
     private List<Comment> comments;
 

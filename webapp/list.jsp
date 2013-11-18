@@ -49,6 +49,7 @@
 	function writeComments(e) {
 		e.preventDefault();
 		var elementForm = e.currentTarget.form;
+		debugger;
 		var oFormData = new FormData(elementForm);
 		var sID = elementForm[0].value;
 		var url = "/board/" + sID + "/comments.json";
@@ -72,7 +73,7 @@
 	    };
 	    
 	    request.send(oFormData);
-	    
+	
 	}
 	
 	window.onload = initPage;
@@ -98,9 +99,9 @@
 					<form action="/board/write" method="post"
 						enctype="multipart/form-data">
 
-						<input type="hidden" name="id" value="${id}"> <input
-							type="hidden" name="modify" value="${modify}"> <input
-							type="text" name="title" size=50 value="${board.title}"
+						<input type="hidden" name="id" value="${id}">
+						 <input type="hidden" name="modify" value="${modify}">
+						<input type="text" name="title" size=50 value="${board.title}"
 							placeholder="Title"><br />
 
 						<textarea name="contents" rows="20" cols="50"

@@ -13,7 +13,7 @@
 	<!-- Library / Framework Logger -->
 	<logger name="org.hibernate" level="WARN" />
 	<logger name="org.hibernate.SQL" level="DEBUG" />
-	<logger name="org.hibernate.type" level="WARN" />
+	<logger name="org.hibernate.type" level="DEBUG" />
 	<logger name="org.hibernate.type.BasicTypeRegistry" level="WARN" />
 	<logger name="org.hibernate.descriptor.sql.BasicExtractor" level="WARN" />
 	<logger name="org.springframework" level="INFO" />

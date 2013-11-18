@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.nhnnext.repository.BoardRepository;
 import org.nhnnext.repository.CommentRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,8 @@ import support.FileUploader;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
-	
+	private static final Logger log = LoggerFactory
+			.getLogger(BoardController.class);
 	@Autowired
 	private BoardRepository boardRepository;
 	
@@ -29,20 +32,19 @@ public class BoardController {
 	
 	@RequestMapping("/form")
 	public String form() {
-		//board라는 변수가 없으므로 board라는 변수를 사용하는 것은 전부 ""로 뜬다.
 		return "form";
 	}
 	
    //list로 보내는 메소드 
-	@RequestMapping("/list")
+	@RequestMapping("list")
 	public String list(Model model) {
 		
 		Iterable<Board> iterable = boardRepository.findAll();
-		model.addAttribute("list", iterable);
+		model.addAttribute("list", iterable); //모델은 키밸류 쌍으로 이루어져서 (이름, 값 )
 		return "list";
 	}
 	
-	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	@RequestMapping(value = "write", method = RequestMethod.POST)
 	public String write(Board board, MultipartFile file) {
 		String fileName = FileUploader.upload(file);
 		board.setFileName(fileName);
@@ -50,7 +52,7 @@ public class BoardController {
 		Board savedBoard = boardRepository.save(board);
 		//return  "redirect:http://www.naver.com" /*"form"*/;// redirect의 경우 정보 재전송 없이 새로고침이 가능
 		//return "form";
-		return "redirect:/board/list";
+		return "write";
 	}
 	
 	@RequestMapping("/{id}")

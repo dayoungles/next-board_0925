@@ -18,7 +18,7 @@ public class Comment {
 	@Column
 	private String contents;
 	
-	
+	@JsonIgnore
 	@ManyToOne
 	private Board board;
 	
