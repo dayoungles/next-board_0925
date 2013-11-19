@@ -36,7 +36,7 @@ public class BoardController {
 	}
 	
    //list로 보내는 메소드 
-	@RequestMapping("list")
+	@RequestMapping("/list")
 	public String list(Model model) {
 		
 		Iterable<Board> iterable = boardRepository.findAll();
@@ -44,7 +44,12 @@ public class BoardController {
 		return "list";
 	}
 	
-	@RequestMapping(value = "write", method = RequestMethod.POST)
+	@RequestMapping(value = "/writing")
+	public String writing(){
+		return "write";
+	}
+	
+	@RequestMapping(value = "/write", method=RequestMethod.POST)
 	public String write(Board board, MultipartFile file) {
 		String fileName = FileUploader.upload(file);
 		board.setFileName(fileName);
@@ -52,12 +57,13 @@ public class BoardController {
 		Board savedBoard = boardRepository.save(board);
 		//return  "redirect:http://www.naver.com" /*"form"*/;// redirect의 경우 정보 재전송 없이 새로고침이 가능
 		//return "form";
-		return "write";
+		return "redirect:/list";
 	}
 	
 	@RequestMapping("/{id}")
 	public String show(@PathVariable Long id, Model model){
 		Board findedBoard = boardRepository.findOne(id);
+		
 		model.addAttribute("board",findedBoard);
 		return "show";
 	}

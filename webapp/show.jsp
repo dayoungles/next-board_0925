@@ -8,6 +8,73 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/show.css" />
+<script>
+	function initPage() {
+		registerEvents();
+		countComments();
+		console.log("loaded");
+	}
+
+	function countComments() {
+		var showComment = document.querySelectorAll('.commentList');
+		for ( var i = 0; i < showComment.length; i++) {
+			var currentPage = showComment[i];
+			var commentsCount = currentPage.querySelectorAll('p').length;
+			var parent = currentPage.parentNode;
+			parent.querySelector('.commentCount > span').innerText = commentsCount;
+		}
+	}
+
+	function registerEvents() {
+		var list = document.getElementsByClassName('commentShow');
+		for ( var i = 0; i < list.length; i++) {
+			list[i].addEventListener('click', toggleComments, false);
+		}
+		var submit_buttons = document
+				.querySelectorAll('.get_comment [type=submit]');
+		for ( var i = 0; i < submit_buttons.length; i++) {
+			submit_buttons[i].addEventListener("click", writeComments, false);
+		}
+	}
+
+	function toggleComments(e) {
+		e.preventDefault();
+		var commentList = e.target.nextElementSibling;
+		commentList.style.display = (commentList.style.display != 'block' ? 'block': 'none');
+	}
+
+	function writeComments(e) {
+		e.preventDefault();
+		var elementForm = e.currentTarget.form;
+		debugger;
+		var oFormData = new FormData(elementForm);
+		var sID = elementForm[0].value;
+		var url = "/board/" + sID + "/comments.json";
+
+		var request = new XMLHttpRequest();
+		request.open("POST", url, true);
+	    request.onreadystatechange = function() {
+	         if(request.readyState ==4 && request.status ==200) {
+				console.log("get response");
+				/* debugger; */
+				var obj = JSON.parse(request.responseText);
+				var comments = elementForm.parentNode.parentNode;
+				var eleCommentList = comments.getElementsByClassName("commentList");
+				console.log(eleCommentList[0]);
+				eleCommentList[0].insertAdjacentHTML("beforeend","<p>- "+obj.contents +"</p>");
+				elementForm.reset();
+				
+				countComments();
+			};
+			
+	    };
+	    
+	    request.send(oFormData);
+	
+	}
+	
+	window.onload = initPage;
+</script>
 </head>
 <body>
 	<div class="top">

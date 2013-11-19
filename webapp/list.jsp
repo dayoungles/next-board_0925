@@ -6,77 +6,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>page</title>
+<title>My page</title>
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/showlist.css" />
 <script>
-	function initPage() {
-		registerEvents();
-		countComments();
-		console.log("loaded");
+	function init(){
+		ppureo();
+		console.log("onload");
 	}
-
-	function countComments() {
-		var showComment = document.querySelectorAll('.commentList');
-		for ( var i = 0; i < showComment.length; i++) {
-			var currentPage = showComment[i];
-			var commentsCount = currentPage.querySelectorAll('p').length;
-			var parent = currentPage.parentNode;
-			parent.querySelector('.commentCount > span').innerText = commentsCount;
-		}
+	function ppureo(){
+		var title=document.querySelectorAll('.title');
+		var thumbnail=document.querySelectorAll('.thumbnail');
+		var i = 0;
+		<c:forEach var="board" items="${list}">
+			if(i < 6) {
+				title[i].innerHTML="<a href =\"/board/${board.id}\">${board.title}</a>";
+				<c:if test="${board.fileName != null}">
+					thumbnail[i].innerHTML="<a href =\"/board/${board.id}\"> <img src=\"/images/${board.fileName}\" height=100></a>"
+				</c:if>
+				i++;
+			}
+		</c:forEach>
+		
+		
 	}
-
-	function registerEvents() {
-		var list = document.getElementsByClassName('commentShow');
-		for ( var i = 0; i < list.length; i++) {
-			list[i].addEventListener('click', toggleComments, false);
-		}
-		var submit_buttons = document
-				.querySelectorAll('.get_comment [type=submit]');
-		for ( var i = 0; i < submit_buttons.length; i++) {
-			submit_buttons[i].addEventListener("click", writeComments, false);
-		}
-	}
-
-	function toggleComments(e) {
-		e.preventDefault();
-		var commentList = e.target.nextElementSibling;
-		commentList.style.display = (commentList.style.display != 'block' ? 'block'
-				: 'none');
-	}
-
-	function writeComments(e) {
-		e.preventDefault();
-		var elementForm = e.currentTarget.form;
-		debugger;
-		var oFormData = new FormData(elementForm);
-		var sID = elementForm[0].value;
-		var url = "/board/" + sID + "/comments.json";
-
-		var request = new XMLHttpRequest();
-		request.open("POST", url, true);
-	    request.onreadystatechange = function() {
-	         if(request.readyState ==4 && request.status ==200) {
-				console.log("get response");
-				/* debugger; */
-				var obj = JSON.parse(request.responseText);
-				var comments = elementForm.parentNode.parentNode;
-				var eleCommentList = comments.getElementsByClassName("commentList");
-				console.log(eleCommentList[0]);
-				eleCommentList[0].insertAdjacentHTML("beforeend","<p>- "+obj.contents +"</p>");
-				elementForm.reset();
-				
-				countComments();
-			};
-			
-	    };
-	    
-	    request.send(oFormData);
-	
-	}
-	
-	window.onload = initPage;
+	window.onload=init;
 </script>
 </head>
 
@@ -85,62 +40,63 @@
 		<!-- 상단 바  -->
 		<div class="top">
 			<div class="top_inside">
-				<h2>Service name</h2>
+				<h2>My page</h2>
 				<h2>
 					<a href="/user/login">LogIn</a>
 				</h2>
 			</div>
 		</div>
+		
 		<div class="list">
-			<div class="spring"></div>
 			<div class = page>
-				<div class="line1">
-					<div class ="post">
-						
-							<div class="thumbnail"><a href ="#">썸네일 사진</a></div>
-							<div class="title"><a href ="#">글 제목</a> </div>
-						
+				
+				 <div class="line1">
+				 	<div class="lineLeft">
+						<div class ="post">
+							<div class="thumbnail"></div>
+							<div class="title"> </div>
+						</div>
 					</div>
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>					
-					</div>
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>					
-					</div>
-				</div>
-				<div class ="line2">
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>					
-					</div>
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>					
-					</div>
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>
+					<div class="lineRight">
+						<div class ="post">
+							<div class="thumbnail"></div>
+							<div class="title"> </div>
+						</div>
 					</div>
 				</div>
-				<div class ="line3">
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>					
+				 <div class="line2">
+					<div class="lineRight">
+						<div class ="post">
+							<div class="thumbnail"></div>
+							<div class="title"> </div>
+						</div>
 					</div>
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>					
+				 	<div class="lineLeft">
+						<div class ="post">
+							<div class="thumbnail"></div>
+							<div class="title"> </div>
+						</div>
 					</div>
-					<div class ="post">
-						<div class="thumbnail">썸네일 사진</div>
-						<div class="title">글 제목 </div>
+
+				</div>
+				 <div class="line3">
+				 	<div class="lineLeft">
+						<div class ="post">
+							<div class="thumbnail"></div>
+							<div class="title"> </div>
+						</div>
+					</div>
+					<div class="lineRight">
+						<div class ="post">
+							<div class="thumbnail"></div>
+							<div class="title"> </div>
+						</div>
 					</div>
 				</div>
+				<a href ="/board/{board.id}">가</a>
 			</div>
-			<%-- <div class="spring"></div>
-			<!-- 쓰는 페이지 부분  -->
+			
+			<%-- <!-- 쓰는 페이지 부분  -->
 			<div class="writing">
 				<div class="formArea">
 					<form action="/board/write" method="post"
