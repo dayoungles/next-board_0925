@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +12,21 @@
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/showlist.css" />
 <script>
+
 	function init(){
 		ppureo();
 		console.log("onload");
 	}
+	
 	function ppureo(){
-		var title=document.querySelectorAll('.title');
-		var thumbnail=document.querySelectorAll('.thumbnail');
+		var title = document.querySelectorAll('.title');
+		var thumbnail = document.querySelectorAll('.thumbnail');
 		var i = 0;
+		var length = ${fn:length(list)};
+		console.log(length);
 		<c:forEach var="board" items="${list}">
 			if(i < 6) {
+				/* 최신부터 거꾸로 넣고 싶다. */
 				title[i].innerHTML="<a href =\"/board/${board.id}\">${board.title}</a>";
 				<c:if test="${board.fileName != null}">
 					thumbnail[i].innerHTML="<a href =\"/board/${board.id}\"> <img src=\"/images/${board.fileName}\" height=100></a>"

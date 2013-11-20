@@ -29,16 +29,18 @@
 		</div>
 		
 		<div class=note>
-			<form action=/user/login_check method="post">
-				<input type=textbox name=id placeholder="ID"><br> 
-				<input type=password name=password placeholder="PASSWORD"><br>
-				<input type = "submit" value = "Log in">
-			</form>
+			<div class=login_box>
+				<h1>LOGIN</h1>
+				<form action=/user/login_check method="post">
+					<input type=textbox name=id placeholder="ID"><br> 
+					<input type=password name=password placeholder="PASSWORD"><br><br>
+					<input type = "submit" value = "Log in">
+				</form>
+			</div>
 		</div>
 	
 	</div>
 
-	<h1>LOGIN</h1>
 
 <br>
 	<a href = "/user/signup">SIGN UP HERE!</a>

@@ -30,7 +30,7 @@ public class BoardController {
 	private CommentRepository commentRepository;
 	
 	
-	@RequestMapping("/form")
+	@RequestMapping("form")
 	public String form() {
 		return "form";
 	}
@@ -55,6 +55,7 @@ public class BoardController {
 		board.setFileName(fileName);
 		
 		Board savedBoard = boardRepository.save(board);
+		log.debug("board : {}", board);
 		//return  "redirect:http://www.naver.com" /*"form"*/;// redirect의 경우 정보 재전송 없이 새로고침이 가능
 		//return "form";
 		return "redirect:/board/list";
@@ -63,7 +64,6 @@ public class BoardController {
 	@RequestMapping("/{id}")
 	public String show(@PathVariable Long id, Model model){
 		Board findedBoard = boardRepository.findOne(id);
-		
 		model.addAttribute("board",findedBoard);
 		return "show";
 	}

@@ -9,19 +9,26 @@
 <link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/newWrite.css" />
 </head>
 <body>
-		<div id = "top">
-			<div id = "top-middle">
-				<div id = "top-m-l">
-					<p>WRITING PAGE</p>
-				</div>
-				<div id = "top-m-r">
-					<p class = top>LOG OUT</p>
-					<p class = top>LIST</p>
-				</div>
+	<!-- 상단 바  -->
+		<div class="top">
+			<div class="top_inside">
+				<h2><a href ="/board/list">My page</a></h2>
+				<h2>
+					
+					<c:choose>
+	                	<c:when test="${not empty sessionScope.userId}">
+	                		<a href="/user/logout">LogOut</a>
+	                	</c:when>
+	                	<c:otherwise>
+	                		<a href="/user/login">Login</a>
+	                		<a href="/user/signup">Join</a>
+	                	</c:otherwise>
+	                </c:choose>
+				</h2>
 			</div>
 		</div>
-	<div id ="wrap">
 			
+	<div id ="wrap">
 		<div id = "title">
 			<h1>New Post</h1> 
 		</div>
