@@ -8,11 +8,21 @@ ul,ol{list-style:none}
 em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
 
 body{
-	background-color: #d5d6e0;
+	background-color: #d5bb8d;
+}
+a {/*적용 안되는 듯?  */
+	text-decoration: none;
+	color: black;
 }
 
+div.top_inside>h2:nth-of-type(2) a{
+	
+	margin: 5px;
+	color: #ce8810;
+	text-decoration: none;
+}
 div.top {
-	background-color: #55455d;
+	background-color: #fea017;
 	height: 50px;
 }
 
@@ -36,60 +46,73 @@ div.top_inside>h2:nth-of-type(2){
 	text-decoration: none;
 }
 
-div.spring {
-	
-	background-image:url("/img/spring.png");
-	background-position: 0px 0px;
-	height: 48px;
-	width: 745px;
-	margin: 0px auto;
-	position: relative;
-	overflow:hidden;
-	/* padding-left: 10px; */
-	z-index:2;
-}
+
 div.page {
-	position: relative;
-	top: -50px;
-	
+	background-image :url("/img/note.png");
+	background-size: 900px auto;
+	background-repeat:no-repeat;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    
-	padding: 30px 20px 10px;
-	width: 800px;
-	margin: 20px auto;
-	border: 1px grey solid;
-	background-color:#f6dc92;
-	height: auto;
+	margin: 0px auto;
+	width: 900px;
+	height: 600px;
 	overflow:hidden;
+	padding-top:20px;
+	margin-top:25px;
 }
 
 div.title {
-	text-align: center;
+	text-align: right;
 	font-size:1.4em;
+	margin-right:50px;
+	float: right;
+}
+div.polaroid{
+
+	background-image:url("/img/polaroid.png");
+	background-size: 400px auto;
+	background-repeat:no-repeat;
+	width:400px;
+	height: 500px;
+	margin-left:30px;
+	float:left;
+	
+}
+div.picture {
+	text-align: center;
+	width: 262px;
+	height: 270px;
+	margin-left: 72px;
+	margin-top: 70px;
 }
 
-div.picture{
-	width: 400px;
-	
-	float: left;
-	margin: 10px;
-	
+div.picture>img{
+	max-width:262px;
+	max-height:270px;;
+	margin-top:5px;
+}
+div.right_page{
+	float:right;
+	width:400px;
+}
+button.modify delete{
+	float:right;
 }
 div.content{
-	width: 300px;
+	width: 350px;
 	float: right;
-	margin-right: 10px;
+	margin-right: 60px;
 	word-break:break-all;
-	text-decoration:underline;
+	
 	
 }
  
 div.below_content{
-	text-align: right;
-	height: 30px;
-	width: 
+text-align: right;
+height: 50px;
+width: 350px;
+overflow: hidden;
 }
 .below_content button{
 	margin: 5px auto;
@@ -104,6 +127,8 @@ div.below_content{
 div.get_comment{
 	text-align: right;
 	width: 300px;
+	
+	
 }
 
 div.commentList{

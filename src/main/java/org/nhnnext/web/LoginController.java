@@ -50,6 +50,11 @@ public class LoginController {
 		userRepository.save(user);
 		return "redirect:/user/login";
 	}
-
+	
+	@RequestMapping(value="/logout")
+	public String logout(String id, String password, HttpSession session){
+		session.removeAttribute("userId");
+		return"redirect:/user/login";
+	}
 
 }

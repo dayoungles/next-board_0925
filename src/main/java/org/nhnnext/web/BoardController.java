@@ -46,7 +46,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/writing")
 	public String writing(){
-		return "write";
+		return "form";
 	}
 	
 	@RequestMapping(value = "/write", method=RequestMethod.POST)
@@ -57,7 +57,7 @@ public class BoardController {
 		Board savedBoard = boardRepository.save(board);
 		//return  "redirect:http://www.naver.com" /*"form"*/;// redirect의 경우 정보 재전송 없이 새로고침이 가능
 		//return "form";
-		return "redirect:/list";
+		return "redirect:/board/list";
 	}
 	
 	@RequestMapping("/{id}")

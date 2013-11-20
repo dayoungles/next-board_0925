@@ -8,14 +8,14 @@ ul,ol{list-style:none}
 em,address{font-style:normal} a{text-decoration:none}
 
 body{
-	background-color: #d5d6e0;
+	background-color: #d5bb8d;
 }
 a {/*적용 안되는 듯?  */
 	text-decoration: none;
 	color: black;
 }
 div.top {
-	background-color: #55455d;
+	background-color: #fea017;
 	height: 50px;
 }
 
@@ -28,7 +28,7 @@ div.top_inside {
 div.top_inside>h2 {
 	float: left;
 	text-decoration: none;
-	color: #ffffff;
+	color: #5d3424;
 	margin: 5px;
 }
 
@@ -39,7 +39,7 @@ div.top_inside>h2:nth-of-type(2) {
 	text-decoration: none;
 }
 
-div.top_inside>h2:nth-of-type(2) a{
+div.top_inside a{
 	
 	margin: 5px;
 	color: #ffffff;
@@ -50,18 +50,9 @@ div.list {
 	margin-top:20px;
 }
 div.writing {
-	position: relative;
-	top: -50px;
-	
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    
-	padding: 30px 20px 10px;
-	width: 800px;
-	margin: 20px auto;
-	border: 1px grey solid;
-	background-color:#f6dc92;	
+	width:100px;
+	float: left;
+	margin-top: 30px;
 }
 div.formArea {
 	margin: 0px auto;
@@ -115,17 +106,11 @@ div.page {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    
-	
-	
 	margin: 0px auto;
-	border: 1px grey solid;
 	width: 900px;
 	height: 600px;
-	
 	overflow:hidden;
 	padding-top:25px;
-	
 }
 
 
@@ -154,7 +139,7 @@ div.below_content{
 	width: 
 }
 .below_content button{
-		margin: 5px auto;
+	margin: 5px auto;
 	padding: 2px;
 	background-color: #d0bfe8;
 	color: black;
