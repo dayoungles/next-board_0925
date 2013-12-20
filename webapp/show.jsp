@@ -30,8 +30,7 @@
 		for ( var i = 0; i < list.length; i++) {
 			list[i].addEventListener('click', toggleComments, false);
 		}
-		var submit_buttons = document
-				.querySelectorAll('.get_comment [type=submit]');
+		var submit_buttons = document.querySelectorAll('.get_comment [type=submit]');
 		for ( var i = 0; i < submit_buttons.length; i++) {
 			submit_buttons[i].addEventListener("click", writeComments, false);
 		}
@@ -99,6 +98,7 @@
 			<div class="right_page">
 				<div class="title">
 					<h1>${board.title}</h1>
+					<h5>${sessionScope.userId}</h5>
 				</div>
 	
 				<div class="content">${board.contents}</div>

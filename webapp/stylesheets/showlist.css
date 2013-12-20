@@ -1,26 +1,49 @@
 @CHARSET "UTF-8";
 /* System Name, CSS Version_Creater_Date */
-/* Common */ 
-body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select{margin:0;padding:0}
-body,input,textarea,select,button,table{font-family:NanumPen,Dotum,AppleGothic,sans- serif;font-size:1.5em}
-img,fieldset{border:0}
-ul,ol{list-style:none}
-em,address{font-style:normal} a{text-decoration:none}
+/* Common */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select
+	{
+	margin: 0;
+	padding: 0
+}
 
-body{
+body,input,textarea,select,button,table {
+	font-family: NanumPen, Dotum, AppleGothic, sans- serif;
+	font-size: 1.5em
+}
+
+img,fieldset {
+	border: 0
+}
+
+ul,ol {
+	list-style: none
+}
+
+em,address {
+	font-style: normal
+}
+
+a {
+	text-decoration: none
+}
+
+body {
 	background-color: #d5bb8d;
 }
-a {/*적용 안되는 듯?  */
+
+a { /*적용 안되는 듯?  */
 	text-decoration: none;
 	color: black;
 }
+
 div.top {
 	background-color: #fea017;
 	height: 50px;
 }
 
 div.top_inside {
-	height:40px;
+	height: 40px;
 	width: 800px;
 	margin: 0px auto;
 }
@@ -39,176 +62,165 @@ div.top_inside>h2:nth-of-type(2) {
 	text-decoration: none;
 }
 
-div.top_inside a{
-	
+div.top_inside a {
 	margin: 5px;
 	color: #ffffff;
 	text-decoration: none;
 }
 
 div.list {
-	margin-top:20px;
+	margin-top: 20px;
 }
+
 div.writing {
-	width:100px;
+	width: 100px;
 	float: left;
 	margin-top: 30px;
 }
+
 div.formArea {
 	margin: 0px auto;
 	text-align: center;
 }
 
-.formArea input[type="text"]{
+.formArea input[type="text"] {
 	background-color: #f6dc92;
-	margin: 0px auto;/*왜 가운데 정렬 안될 까? >>div 자체를 가운데 정렬했어야..  */
+	margin: 0px auto; /*왜 가운데 정렬 안될 까? >>div 자체를 가운데 정렬했어야..  */
 	padding: 2px;
 	width: 700px;
 }
 
 .formArea textarea {
 	background-color: #f6dc92;
-	
 	margin: 10px auto;
 	resize: none;
 	width: 700px;
 	height: 300px;
-	
 }
+
 .bottom {
 	text-align: center;
 }
-.bottom input[type= "submit"],[type = "reset"]{
+
+.bottom input[type="submit"],[type="reset"] {
 	margin: 5px auto;
 	padding: 2px;
 	background-color: #d0bfe8;
 	color: black;
 	border-radius: 5px;
-
-	
-	
 }
 
-.bottom input[type = "file"]{
-	
+.bottom input[type="file"] {
 	margin: 0 auto;
-	height: 100px;/*글씨 키우니까 창안의 글씨가..헐.*/
-	
-} 
-
+	height: 100px; /*글씨 키우니까 창안의 글씨가..헐.*/
+}
 
 div.page {
-	
-	
-	background-image :url("/img/note.png");
+	background-image: url("/img/note.png");
 	background-size: 900px auto;
-	background-repeat:no-repeat;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	background-repeat: no-repeat;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	margin: 0px auto;
 	width: 900px;
 	height: 600px;
-	overflow:hidden;
-	padding-top:25px;
+	overflow: hidden;
+	padding-top: 25px;
 }
-
 
 div.title {
 	text-align: center;
 }
 
-div.picture{
+div.picture {
 	width: 400px;
-	
 	float: left;
 	margin: 10px;
-	
 }
-div.content{
+
+div.content {
 	width: 300px;
 	float: right;
 	margin-right: 10px;
-	word-break:break-all;
-	text-decoration:underline;
+	word-break: break-all;
+	text-decoration: underline;
 }
- 
-div.below_content{
+
+div.below_content {
 	text-align: right;
 	height: 30px;
-	width: 
+	width:
 }
-.below_content button{
+
+.below_content button {
 	margin: 5px auto;
 	padding: 2px;
 	background-color: #d0bfe8;
 	color: black;
 	border-radius: 5px;
 	font-size: 1em;
+}
 
-} 
-
-div.get_comment{
+div.get_comment {
 	text-align: right;
 	width: 300px;
 }
 
-div.commentList{
+div.commentList {
 	display: none;
 }
 
-
-div.lineLeft{
+div.lineLeft {
 	width: 420px;
 	height: 130px;
-	display:inline-block;
-	
-}
-div.lineLeft>.post{
-	float:left;
-}
-div.lineRight>.post{
-	float:right;
+	display: inline-block;
 }
 
-div.lineRight{
-	width: 420px;
-	height:130px;
-	display:inline-block;
+div.lineLeft>.post {
+	transform: rotate(-10deg);
+	-ms-transform: rotate(-10deg);
+	-webkit-transform: rotate(-10deg);
+	float: left;
 }
-div.post{
-	background-image:url("/img/polaroid.png");
+
+div.lineRight>.post {
+	transform: rotate(+10deg);
+	-ms-transform: rotate(+10deg);
+	-webkit-transform: rotate(+10deg);
+	float: right;
+}
+
+div.lineRight {
+	width: 420px;
+	height: 130px;
+	display: inline-block;
+}
+
+div.post {
+	background-image: url("/img/polaroid.png");
 	background-size: 200px 170px;
-	background-repeat:no-repeat;
-	width:200px;
-	height:170px;
-	
+	background-repeat: no-repeat;
+	width: 200px;
+	height: 170px;
 	margin: 10px;
 }
 
-div.page>div{
+div.page>div {
 	display: inline-block;
 	margin: 0px 20px;
 	width: 900px;
 	height: 150px;
-	
 }
 
-div.thumbnail{
+div.thumbnail {
 	width: 135px;
-	height:100px;
+	height: 100px;
 	margin: 0px auto;
-	
-	margin-top:25px;
-	text-align:center;
-}
-div.thumbnail>img{
-	
+	margin-top: 25px;
+	text-align: center;
 }
 
-
-
-
-
-
-
+div.thumbnail>img {
+	
+}

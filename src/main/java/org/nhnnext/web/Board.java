@@ -8,7 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -27,6 +29,17 @@ public class Board {
 	@Column
 	private String fileName;
 	
+	@Column
+	private String user;
+	
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
     private List<Comment> comments;
 

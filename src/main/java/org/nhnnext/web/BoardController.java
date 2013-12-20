@@ -53,7 +53,7 @@ public class BoardController {
 	public String write(Board board, MultipartFile file) {
 		String fileName = FileUploader.upload(file);
 		board.setFileName(fileName);
-		
+		//여기에서 세션이용해서 유저 아이디를 찾아서 넣는다. 
 		Board savedBoard = boardRepository.save(board);
 		log.debug("board : {}", board);
 		//return  "redirect:http://www.naver.com" /*"form"*/;// redirect의 경우 정보 재전송 없이 새로고침이 가능

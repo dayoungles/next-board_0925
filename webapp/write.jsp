@@ -13,7 +13,7 @@
 				<div class="formArea">
 					<form action="/board/write" method="post"
 						enctype="multipart/form-data">
-
+						<input type = "hidden" name="user" value="${sessionScope.userId}">
 						<input type="hidden" name="id" value="${id}">
 						 <input type="hidden" name="modify" value="${modify}">
 						<input type="text" name="title" size=50 value="${board.title}"

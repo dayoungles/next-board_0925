@@ -27,6 +27,7 @@
 		<c:forEach var="board" items="${list}">
 			if(i < 6) {
 				/* 최신부터 거꾸로 넣고 싶다. */
+				
 				title[i].innerHTML="<a href =\"/board/${board.id}\">${board.title}</a>";
 				<c:if test="${board.fileName != null}">
 					thumbnail[i].innerHTML="<a href =\"/board/${board.id}\"> <img src=\"/images/${board.fileName}\" height=100></a>"
@@ -91,7 +92,7 @@
 							<div class="title"> </div>
 						</div>
 						<div class="writing">
-							<a href="/board/form"><img src="/img/tag.png"></a>
+							<a href="/board/write"><img src="/img/tag.png"></a>
 							
 						</div>
 					</div>

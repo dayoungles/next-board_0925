@@ -37,6 +37,7 @@
 		<form action="/board/write" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="${id}"> 
 			<input type="hidden" name="modify" value="${modify}">
+			<input type = "hidden" name="user" value="${sessionScope.userId}">
 			<input type="text" name="title" size=50 value="${board.title}" placeholder="제목을 넣어보시게"><br />
 
 			<textarea name="contents" rows="20" cols="50" placeholder= "내용을 넣으시게">${board.contents}</textarea>
