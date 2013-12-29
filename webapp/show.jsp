@@ -78,9 +78,17 @@
 <body>
 	<div class="top">
 			<div class="top_inside">
-				<h2>My page</h2>
+				<h2><a href ="/board/list">My page</a></h2>
 				<h2>
-					<a href="/user/login">LogIn</a>
+					<c:choose>
+	                	<c:when test="${not empty sessionScope.userId}">
+	                		<a href="/user/logout">LogOut</a>
+	                	</c:when>
+	                	<c:otherwise>
+	                		<a href="/user/login">Login</a>
+	                		<a href="/user/signup">Join</a>
+	                	</c:otherwise>
+	                </c:choose>
 				</h2>
 			</div>
 		</div>
@@ -89,7 +97,8 @@
 		<div class="page">
 			<div class="polaroid">
  				<div class=picture>
-<					<c:if test="${board.fileName != null}">
+	
+						<c:if test="${board.fileName != null}">
 						<img src="/images/${board.fileName}">
 						<br>
 					</c:if>

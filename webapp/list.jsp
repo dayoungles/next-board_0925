@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -12,31 +12,90 @@
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/showlist.css" />
 <script>
-
+	var board = [];
+	function initBoard() {
+		var i = 0;
+		<c:forEach var="board" items="${list}">
+		board[i] = {};
+		board[i].id= "${board.id}";
+		board[i].title = "${board.title}";
+		board[i].fileName = "${board.fileName}";
+		++i;
+		</c:forEach>
+	}
 	function init(){
-		ppureo();
+		var pageNum = Math.ceil(${fn:length(list)} / 6);//3.11
+		
+		initBoard();
+		pageList(pageNum);
+		
+		var page = document.querySelectorAll(".page");
+		
+		for(var i = 0; i < page.length; i++) {
+			page[i].style.left = i * 100 + "%";
+			ppureo(page[i], i);
+		}
+		
+		document.addEventListener('click',move,false);
 		console.log("onload");
 	}
+
+	function ppureo(page, pageNum){
+		var title = page.querySelectorAll('.title');
+		var thumbnail = page.querySelectorAll('.thumbnail');
+		var start = pageNum * 6 + 0;
+		for(var i = 0; i < 6; ++i) {
+			var boardNum = start + i;
+			if(boardNum >= board.length)
+				break;
+			
+			title[i].innerHTML="<a href =\"/board/" + board[boardNum].id + "\">" + board[boardNum].title + "</a>";
+			if(!board[boardNum].fileName)
+				continue;
+			
+			thumbnail[i].innerHTML="<a href =\"/board/" + board[boardNum].id + "\"> <img src=\"/images/" + board[boardNum].fileName + "\" height=100></a>";
+		}
+	}
+	function move(index){
+		
+		//var page = document.getElementById("right_move");
+		var eleList = document.getElementById("list");
+		//0 0
+		//1 -100%
+		//2 -200%
+		//3 -300%
+		var page = document.querySelectorAll(".page");
+		for(var i = 0; i < page.length; i++) {
+			page[i].style.left =  (i - index + 1) * 100  + "%";
+			ppureo(page[i], i);
+		}
+		list.style.left = 0 + "px";
+		//list.style.left = (parseInt(list.style.left)+900)+"px";
+	}
 	
-	function ppureo(){
-		var title = document.querySelectorAll('.title');
-		var thumbnail = document.querySelectorAll('.thumbnail');
-		var i = 0;
-		var length = ${fn:length(list)};
-		console.log(length);
-		<c:forEach var="board" items="${list}">
-			if(i < 6) {
-				/* 최신부터 거꾸로 넣고 싶다. */
-				
-				title[i].innerHTML="<a href =\"/board/${board.id}\">${board.title}</a>";
-				<c:if test="${board.fileName != null}">
-					thumbnail[i].innerHTML="<a href =\"/board/${board.id}\"> <img src=\"/images/${board.fileName}\" height=100></a>"
-				</c:if>
-				i++;
+	function pageList(pageNum){
+		var page = document.querySelector(".pageNum");
+		
+/* 		if (i > 6){
+			if(i%6==0){}
+			var pageNum=i/6;
+
+			for(var j = 1; j < pageNum; j++){
+				console.log("test"+page);
+					var string ="<a href = \"주소\">[" + (j+1) + "]</a>";
+				page.insertAdjacentHTML("beforeend",string);
 			}
-		</c:forEach>
-		
-		
+		} else { */
+		var list = document.getElementById("list");
+		var pageHTML = list.innerHTML;
+		for(var j = 1; j <= pageNum; j++) {
+			if(j != 1) list.insertAdjacentHTML("afterbegin", pageHTML);
+			//console.log("test"+page);
+			var string ="<a href = \"#\" onclick=\"move("+j+")\">[" + (j) + "]</a>";
+			page.insertAdjacentHTML("beforeend",string);
+		}
+
+		 
 	}
 	window.onload=init;
 </script>
@@ -47,142 +106,84 @@
 		<!-- 상단 바  -->
 		<div class="top">
 			<div class="top_inside">
-				<h2><a href ="/board/list">My page</a></h2>
+				<h2>
+					<a href="/board/list">My page</a>
+				</h2>
 				<h2>
 					<c:choose>
-	                	<c:when test="${not empty sessionScope.userId}">
-	                		<a href="/user/logout">LogOut</a>
-	                	</c:when>
-	                	<c:otherwise>
-	                		<a href="/user/login">Login</a>
-	                		<a href="/user/signup">Join</a>
-	                	</c:otherwise>
-	                </c:choose>
+						<c:when test="${not empty sessionScope.userId}">
+							<a href="/user/logout">LogOut</a>
+						</c:when>
+						<c:otherwise>
+							<a href="/user/login">Login</a>
+							<a href="/user/signup">Join</a>
+						</c:otherwise>
+					</c:choose>
 				</h2>
 			</div>
 		</div>
-		
-		<div class="list">
-			<div class = page>
-				
-				 <div class="line1">
-				 	<div class="lineLeft">
-						<div class ="post">
-							<div class="thumbnail"></div>
-							<div class="title"> </div>
-						</div>
-					</div>
-					<div class="lineRight">
-						<div class ="post">
-							<div class="thumbnail"></div>
-							<div class="title"> </div>
-						</div>
-					</div>
-				</div>
-				 <div class="line2">
-					<div class="lineRight">
-						<div class ="post">
-							<div class="thumbnail"></div>
-							<div class="title"> </div>
-						</div>
-					</div>
-				 	<div class="lineLeft">
-						<div class ="post">
-							<div class="thumbnail"></div>
-							<div class="title"> </div>
-						</div>
-						<div class="writing">
-							<a href="/board/write"><img src="/img/tag.png"></a>
-							
-						</div>
-					</div>
 
-				</div>
-				 <div class="line3">
-				 	<div class="lineLeft">
-						<div class ="post">
-							<div class="thumbnail"></div>
-							<div class="title"> </div>
-						</div>
-					</div>
-					<div class="lineRight">
-						<div class ="post">
-							<div class="thumbnail"></div>
-							<div class="title"> </div>
-						</div>
-					</div>
-				</div>
-				<a href ="/board/{board.id}">가</a>
-			</div>
-			
-			<%-- <!-- 쓰는 페이지 부분  -->
-			<div class="writing">
-				<div class="formArea">
-					<form action="/board/write" method="post"
-						enctype="multipart/form-data">
-
-						<input type="hidden" name="id" value="${id}">
-						 <input type="hidden" name="modify" value="${modify}">
-						<input type="text" name="title" size=50 value="${board.title}"
-							placeholder="Title"><br />
-
-						<textarea name="contents" rows="20" cols="50"
-							placeholder="Content">${board.contents}</textarea>
-						<br />
-						<c:if test="${board.fileName != null}"></c:if>
-
-						<div class="bottom">
-							<input type="file" name="file"><br> <input
-								type="submit" value="SEND"> <input type="reset"
-								value="RESET">
-						</div>
-					</form>
-				</div>
-			</div> --%>
-			<!-- 글 보여주는 부분 요거 디브 어디갔징  -->
-<%-- 			<c:forEach var="board" items="${list}">
-				<div class="spring"></div>
+		<div class=canvas>
+			<!--   한 페이지 시작  -->
+			<div id="list">
 				<div class="page">
-					<div class="title">
-						<h1>${board.title}</h1>
+					<div class="writing">
+						<a href="/board/writing"> W </a>
 					</div>
-					<div class=picture>
-						<c:if test="${board.fileName != null}">
-							<img src="/images/${board.fileName}" width=400>
-							<br>
-						</c:if>
-					</div>
-
-					<div class="content">${board.contents}</div>
-
-					<div class="below_content">
-						<a href="./${board.id}/modify"><button class="modify">수정</button></a>
-						<a href="./${board.id}/delete"><button class="delete">삭제</button></a>
-					</div>
-					
-					<div class=comments>
-						<div class=get_comment>
-							<form action="/board/${board.id}/comments" method="post">
-								<input type="hidden" name="id" value="${board.id}">
-								<textarea name="contents" rows="2" cols="20"></textarea>
-								<input type="submit" value="comments"> <br>
-							</form>
-						</div>
-						<div class="commentCount">
-							Number of Comments: <span></span><!-- span적용이 안되는데 갑자기..? 내가 뭘 건드려서 여기가 영향을 받지?? -->
+					<div class="line1">
+						<div class="lineLeft">
+							<div class="post">
+								<div class="thumbnail"></div>
+								<div class="title"></div>
+							</div>
 						</div>
 
-						<a href="#" class="commentShow">Show me the comments</a>
-						<div class="commentList">
-							<c:forEach var="comment" items="${board.comments}">
-								<p>- ${comment.contents}</p>
-							</c:forEach>
+
+						<div class="lineRight">
+							<div class="post">
+								<div class="thumbnail"></div>
+								<div class="title"></div>
+							</div>
 						</div>
 					</div>
+					<div class="line2">
+						<div class="lineRight">
+							<div class="post">
+								<div class="thumbnail"></div>
+								<div class="title"></div>
+							</div>
+						</div>
+						<div class="lineLeft">
+							<div class="post">
+								<div class="thumbnail"></div>
+								<div class="title"></div>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="line3">
+						<div class="lineLeft">
+							<div class="post">
+								<div class="thumbnail"></div>
+								<div class="title"></div>
+							</div>
+						</div>
+						<div class="lineRight">
+							<div class="post">
+								<div class="thumbnail"></div>
+								<div class="title"></div>
+							</div>
+						</div>
+					</div>
+
 				</div>
-
-			</c:forEach> --%>
+			</div>
+		</div>
+		<div class="pageNum">			
 		</div>
 	</div>
+	<input type="button" class="left_move" value="left">
+	<input type="button" id="right_move" value="right">
 </body>
 </html>

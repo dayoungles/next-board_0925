@@ -2,6 +2,9 @@ package org.nhnnext.web;
 
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.nhnnext.repository.BoardRepository;
@@ -30,23 +33,27 @@ public class BoardController {
 	private CommentRepository commentRepository;
 	
 	
-	@RequestMapping("form")
-	public String form() {
-		return "form";
-	}
 	
    //list로 보내는 메소드 
 	@RequestMapping("/list")
 	public String list(Model model) {
 		
 		Iterable<Board> iterable = boardRepository.findAll();
-		model.addAttribute("list", iterable); //모델은 키밸류 쌍으로 이루어져서 (이름, 값 )
+		
+		ArrayList<Board> boardList = new ArrayList<Board>();
+		Iterator iterator = iterable.iterator();
+		while(iterator.hasNext()){
+			boardList.add(0,(Board) iterator.next());
+		}
+		
+		model.addAttribute("list", boardList); //모델은 키밸류 쌍으로 이루어져서 (이름, 값 )
+		
 		return "list";
 	}
 	
 	@RequestMapping(value = "/writing")
 	public String writing(){
-		return "form";
+		return "write";
 	}
 	
 	@RequestMapping(value = "/write", method=RequestMethod.POST)

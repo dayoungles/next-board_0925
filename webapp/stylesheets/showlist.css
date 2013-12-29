@@ -68,14 +68,51 @@ div.top_inside a {
 	text-decoration: none;
 }
 
-div.list {
-	margin-top: 20px;
+div#list {
+	margin: 30px auto;
+	height: 540px;
+	width: 100%;
+	
+}
+div.canvas{
+	
+	margin:0px auto;
+	height:600px;
+	width: 900px;
+	overflow: hidden;
+	position: relative;
 }
 
+div.page>div.line1,div.line2, div.line3 {
+	display: inline-block;
+	margin: 0px 20px;
+	height: 150px;
+}
 div.writing {
-	width: 100px;
+	background-color: red;
+	width: 50px;
 	float: left;
-	margin-top: 30px;
+	
+	font-size: 40px;
+	font-style: color white;
+	text-align: left;
+	line-height: 50px;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	height: 50px;
+	-moz-transition: width 1s linear;
+	-webkit-transition: width 1s linear;
+	-o-transition: width 1s linear;
+	-ms-transition: width 1s linear;
+	transition: width 2s linear;
+	
+	position: absolute;
+
+}
+
+div.writing:hover {
+	width: 100px;
 }
 
 div.formArea {
@@ -127,10 +164,21 @@ div.page {
 	height: 600px;
 	overflow: hidden;
 	padding-top: 25px;
+	/* display: inline-block; */
+	
+	position:absolute;
+	left:0%;
+	
+	transition:left 1s ease-in-out;
+	-webkit-transition:left 1s ease-in-out;
+	-moz-transition:left 1s ease-in-out;
+	-o-transition:left 1s ease-in-out;
+
 }
 
 div.title {
 	text-align: center;
+	display: none; 
 }
 
 div.picture {
@@ -175,16 +223,17 @@ div.lineLeft {
 	width: 420px;
 	height: 130px;
 	display: inline-block;
+	position: relative;
 }
 
-div.lineLeft>.post {
+div.lineLeft .post {
 	transform: rotate(-10deg);
 	-ms-transform: rotate(-10deg);
 	-webkit-transform: rotate(-10deg);
 	float: left;
 }
 
-div.lineRight>.post {
+div.lineRight .post {
 	transform: rotate(+10deg);
 	-ms-transform: rotate(+10deg);
 	-webkit-transform: rotate(+10deg);
@@ -205,14 +254,14 @@ div.post {
 	height: 170px;
 	margin: 10px;
 }
-
-div.page>div {
-	display: inline-block;
-	margin: 0px 20px;
-	width: 900px;
-	height: 150px;
+div.post:hover .title{
+	display:block;
 }
-
+div.title:hover{
+	display: none;
+	text-decoration:yes;
+	color:black;
+}
 div.thumbnail {
 	width: 135px;
 	height: 100px;
@@ -221,6 +270,7 @@ div.thumbnail {
 	text-align: center;
 }
 
-div.thumbnail>img {
-	
+div.pageNum{
+	width: 900px;
+	margin: 0px auto;
 }

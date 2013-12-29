@@ -12,15 +12,15 @@ body{
 }
 a {/*적용 안되는 듯?  */
 	text-decoration: none;
-	color: black;
+	color: white;
 }
-
+/* 
 div.top_inside>h2:nth-of-type(2) a{
 	
 	margin: 5px;
 	color: #ce8810;
 	text-decoration: none;
-}
+} */
 div.top {
 	background-color: #fea017;
 	height: 50px;
