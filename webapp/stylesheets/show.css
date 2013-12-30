@@ -10,9 +10,8 @@ em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{t
 body{
 	background-color: #d5bb8d;
 }
-a {/*적용 안되는 듯?  */
+a {
 	text-decoration: none;
-	color: white;
 }
 /* 
 div.top_inside>h2:nth-of-type(2) a{
@@ -25,7 +24,10 @@ div.top {
 	background-color: #fea017;
 	height: 50px;
 }
-
+div.top_inside a {
+	text-decoration: none;
+	color:white;
+}
 div.top_inside {
 	height:40px;
 	width: 800px;
@@ -45,6 +47,7 @@ div.top_inside>h2:nth-of-type(2){
 	color: #ffffff;
 	text-decoration: none;
 }
+
 
 
 div.page {
@@ -90,7 +93,8 @@ div.picture {
 div.picture>img{
 	max-width:262px;
 	max-height:270px;;
-	margin-top:5px;
+	margin: auto;
+	/* margin-top:5px; */
 }
 div.right_page{
 	float:right;
@@ -123,14 +127,23 @@ overflow: hidden;
 	
 
 } 
-
+.commentShow {
+	color:black;
+	text-decoration: none;
+}
 div.get_comment{
 	text-align: right;
 	width: 300px;
+	float: inline-block;
 	
 	
 }
 
+div.get_comment textarea{
+	resize: none;
+	width: 200px;
+	height: 20px;
+}
 div.commentList{
 	display: none;
 	

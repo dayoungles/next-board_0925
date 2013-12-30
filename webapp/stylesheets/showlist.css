@@ -89,30 +89,36 @@ div.page>div.line1,div.line2, div.line3 {
 	height: 150px;
 }
 div.writing {
-	background-color: red;
-	width: 50px;
+	background-color: #6f6893;
+	width: 15px;
 	float: left;
-	
 	font-size: 40px;
-	font-style: color white;
+	
 	text-align: left;
 	line-height: 50px;
 	display: inline-block;
 	overflow: hidden;
 	white-space: nowrap;
 	height: 50px;
+	padding: 5px 10px;
+	margin: 30px, 20px;
 	-moz-transition: width 1s linear;
 	-webkit-transition: width 1s linear;
 	-o-transition: width 1s linear;
 	-ms-transition: width 1s linear;
-	transition: width 2s linear;
+	transition: width 1s linear;
 	
 	position: absolute;
+	top:50px;
+	left: 50px;
+	transform: rotate(-10deg);
+	-ms-transform: rotate(-10deg);
+	-webkit-transform: rotate(-10deg);
 
 }
 
 div.writing:hover {
-	width: 100px;
+	width: 85px;
 }
 
 div.formArea {
@@ -244,6 +250,7 @@ div.lineRight {
 	width: 420px;
 	height: 130px;
 	display: inline-block;
+	position: relative;
 }
 
 div.post {
@@ -263,8 +270,8 @@ div.title:hover{
 	color:black;
 }
 div.thumbnail {
-	width: 135px;
-	height: 100px;
+	max-width: 135px;
+	max-height: 100px;
 	margin: 0px auto;
 	margin-top: 25px;
 	text-align: center;

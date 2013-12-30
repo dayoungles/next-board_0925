@@ -122,7 +122,7 @@
 						<form action="/board/${board.id}/comments" method="post">
 							<input type="hidden" name="id" value="${board.id}">
 							<textarea name="contents" rows="2" cols="20"></textarea>
-							<input type="submit" value="comments"> <br>
+							<input type="submit" value="댓글"> <br>
 						</form>
 					</div>
 					<div class="commentCount">

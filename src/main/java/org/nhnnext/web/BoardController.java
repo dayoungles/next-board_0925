@@ -7,6 +7,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.nhnnext.repository.BoardRepository;
 import org.nhnnext.repository.CommentRepository;
 import org.slf4j.Logger;
@@ -52,7 +54,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/writing")
-	public String writing(){
+	public String writing(HttpSession session){
+		if(session.getAttribute("userId")==null){
+			
+			return "redirect:/user/login";
+		}
 		return "write";
 	}
 	

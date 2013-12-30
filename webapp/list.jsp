@@ -1,4 +1,5 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -12,17 +13,18 @@
 <link rel="stylesheet" media="screen" type="text/css"
 	href="/stylesheets/showlist.css" />
 <script>
-	var board = [];
+	var board = [];//dic
 	function initBoard() {
 		var i = 0;
 		<c:forEach var="board" items="${list}">
-		board[i] = {};
-		board[i].id= "${board.id}";
-		board[i].title = "${board.title}";
-		board[i].fileName = "${board.fileName}";
-		++i;
+			board[i] = {};
+			board[i].id= "${board.id}";
+			board[i].title = "${board.title}";
+			board[i].fileName = "${board.fileName}";
+			++i;
 		</c:forEach>
 	}
+	
 	function init(){
 		var pageNum = Math.ceil(${fn:length(list)} / 6);//3.11
 		
@@ -57,14 +59,10 @@
 		}
 	}
 	function move(index){
-		
 		//var page = document.getElementById("right_move");
 		var eleList = document.getElementById("list");
-		//0 0
-		//1 -100%
-		//2 -200%
-		//3 -300%
 		var page = document.querySelectorAll(".page");
+
 		for(var i = 0; i < page.length; i++) {
 			page[i].style.left =  (i - index + 1) * 100  + "%";
 			ppureo(page[i], i);
@@ -85,7 +83,7 @@
 					var string ="<a href = \"주소\">[" + (j+1) + "]</a>";
 				page.insertAdjacentHTML("beforeend",string);
 			}
-		} else { */
+		} */
 		var list = document.getElementById("list");
 		var pageHTML = list.innerHTML;
 		for(var j = 1; j <= pageNum; j++) {
@@ -94,8 +92,6 @@
 			var string ="<a href = \"#\" onclick=\"move("+j+")\">[" + (j) + "]</a>";
 			page.insertAdjacentHTML("beforeend",string);
 		}
-
-		 
 	}
 	window.onload=init;
 </script>
@@ -127,9 +123,7 @@
 			<!--   한 페이지 시작  -->
 			<div id="list">
 				<div class="page">
-					<div class="writing">
-						<a href="/board/writing"> W </a>
-					</div>
+
 					<div class="line1">
 						<div class="lineLeft">
 							<div class="post">
@@ -159,6 +153,7 @@
 								<div class="title"></div>
 							</div>
 
+
 						</div>
 
 					</div>
@@ -170,6 +165,9 @@
 							</div>
 						</div>
 						<div class="lineRight">
+							<div class="writing">
+								<a href="/board/writing"> WRITE </a>
+							</div>
 							<div class="post">
 								<div class="thumbnail"></div>
 								<div class="title"></div>
@@ -180,10 +178,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="pageNum">			
-		</div>
+		<div class="pageNum"></div>
 	</div>
-	<input type="button" class="left_move" value="left">
-	<input type="button" id="right_move" value="right">
+
 </body>
 </html>
