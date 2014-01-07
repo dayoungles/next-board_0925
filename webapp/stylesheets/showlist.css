@@ -265,7 +265,7 @@ div.post:hover .title{
 	display:block;
 }
 div.title:hover{
-	display: none;
+/* 	display: none; */
 	text-decoration:yes;
 	color:black;
 }
@@ -273,10 +273,14 @@ div.thumbnail {
 	max-width: 135px;
 	max-height: 100px;
 	margin: 0px auto;
-	margin-top: 25px;
+	margin-top: 26px;
 	text-align: center;
 }
-
+div.thumbnail img{
+	max-width:135px;
+	max-height:99px;
+	margin: 0px auto;
+}
 div.pageNum{
 	width: 900px;
 	margin: 0px auto;

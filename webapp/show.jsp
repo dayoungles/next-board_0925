@@ -82,6 +82,7 @@
 				<h2>
 					<c:choose>
 	                	<c:when test="${not empty sessionScope.userId}">
+	                	${sessionScope.userId}님    
 	                		<a href="/user/logout">LogOut</a>
 	                	</c:when>
 	                	<c:otherwise>

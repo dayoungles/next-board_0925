@@ -53,8 +53,8 @@
 			
 			title[i].innerHTML="<a href =\"/board/" + board[boardNum].id + "\">" + board[boardNum].title + "</a>";
 			if(!board[boardNum].fileName)
-				continue;
-			
+				thumbnail[i].innerHTML="<a href =\"/board/" + board[boardNum].id + "\"> <img src=\"/images/" + board[boardNum].fileName + "\" height=100 style=\"visibility:hidden;\"></a>";
+			else
 			thumbnail[i].innerHTML="<a href =\"/board/" + board[boardNum].id + "\"> <img src=\"/images/" + board[boardNum].fileName + "\" height=100></a>";
 		}
 	}
@@ -73,17 +73,7 @@
 	
 	function pageList(pageNum){
 		var page = document.querySelector(".pageNum");
-		
-/* 		if (i > 6){
-			if(i%6==0){}
-			var pageNum=i/6;
 
-			for(var j = 1; j < pageNum; j++){
-				console.log("test"+page);
-					var string ="<a href = \"주소\">[" + (j+1) + "]</a>";
-				page.insertAdjacentHTML("beforeend",string);
-			}
-		} */
 		var list = document.getElementById("list");
 		var pageHTML = list.innerHTML;
 		for(var j = 1; j <= pageNum; j++) {
@@ -108,6 +98,7 @@
 				<h2>
 					<c:choose>
 						<c:when test="${not empty sessionScope.userId}">
+							${sessionScope.userId}님       
 							<a href="/user/logout">LogOut</a>
 						</c:when>
 						<c:otherwise>

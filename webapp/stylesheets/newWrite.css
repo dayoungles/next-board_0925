@@ -1,26 +1,53 @@
 @CHARSET "UTF-8";
 /* System Name, CSS Version_Creater_Date */
-/* Common */ 
-body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select{margin:0;padding:0}
-body,input,textarea,select,button,table{font-family:NanumPen,Dotum,AppleGothic,sans- serif;font-size:1.2em}
-img,fieldset{border:0}
-ul,ol{list-style:none}
-em,address{font-style:normal} a{text-decoration:none} a:hover,a:active,a:focus{text-decoration:underline}
+/* Common */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare a,button,select
+	{
+	margin: 0;
+	padding: 0
+}
 
-body{
+body,input,textarea,select,button,table {
+	font-family: NanumPen, Dotum, AppleGothic, sans- serif;
+	font-size: 1.2em
+}
+
+img,fieldset {
+	border: 0
+}
+
+ul,ol {
+	list-style: none
+}
+
+em,address {
+	font-style: normal
+}
+
+a {
+	text-decoration: none
+}
+
+a:hover,a:active,a:focus {
+	text-decoration: underline
+}
+
+body {
 	background-color: #d5bb8d;
 }
-a {/*적용 안되는 듯?  */
+
+a { /*적용 안되는 듯?  */
 	text-decoration: none;
 	color: black;
 }
+
 div.top {
 	background-color: #fea017;
 	height: 50px;
 }
 
 div.top_inside {
-	height:40px;
+	height: 40px;
 	width: 800px;
 	margin: 0px auto;
 }
@@ -39,47 +66,42 @@ div.top_inside>h2:nth-of-type(2) {
 	text-decoration: none;
 }
 
-div.top_inside a{
-	
+div.top_inside a {
 	margin: 5px;
 	color: #ffffff;
 	text-decoration: none;
 }
 
 div.page {
-	background-image :url("/img/note.png");
+	background-image: url("/img/note.png");
 	background-size: 900px auto;
-	background-repeat:no-repeat;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	background-repeat: no-repeat;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	margin: 0px auto;
 	width: 900px;
 	height: 600px;
-	overflow:hidden;
-	padding-top:20px;
-	margin-top:25px;
+	overflow: hidden;
+	padding-top: 20px;
+	margin-top: 25px;
 }
+
 div#wrap {
 	margin: 20px auto;
 	width: 900px;
-	border: gray 2px solid;
-	
 }
 
-
-
 div#title {
-
 	margin: 5px auto;
 	padding: 5px;
 	text-align: center;
 	width: 500px;
 }
 
-div#formArea {
-	margin: 5px auto;
-	width: 500px;
+.formArea {
+	margin: 30px auto;
+	width: 370px;
 }
 
 div #bottom {
@@ -87,38 +109,132 @@ div #bottom {
 	width: 500px;
 }
 
-#top-m-r input[type= "button"]{
+#top-m-r input[type="button"] {
 	padding: 3px;
 	background-color: #efa6b7;
 	border-radius: 3px;
 }
-#formArea input[type= "text"]{
-	border: 1px gray solid;
-	margin: 5px 0px auto auto;/*왜 가운데 정렬 안될 까? >>div 자체를 가운데 정렬했어야..  */
+
+.formArea input[type="text"] {
+	margin: 5px 0px auto auto; /*왜 가운데 정렬 안될 까? >>div 자체를 가운데 정렬했어야..  */
 	padding: 2px;
-	width: 500px;
+	width: 330px;
 }
 
-#formArea textarea {
-	
-	border: 3px gray solid;
+.formArea textarea {
+	width: 330px;
+	height: 330px;
 	margin: 10px auto;
 	resize: none;
-	width: 500px;
-	height: 300px;
-	
 }
 
-#formArea input[type= "submit"],[type = "reset"]{
+.formArea input[type="submit"],[type="reset"] {
 	margin: 10px auto;
 	padding: 5px;
 	background-color: #a96374;
 	color: white;
 	border-radius: 5px;
+}
+
+.formArea input [type="file"] {
+	text-align: right;
+	margin: 0 auto;
+}
+
+div.top {
+	background-color: #fea017;
+	height: 50px;
+}
+
+div.top_inside a {
+	text-decoration: none;
+	color: white;
+}
+
+div.top_inside {
+	height: 40px;
+	width: 800px;
+	margin: 0px auto;
+}
+
+div.top_inside>h2 {
+	float: left;
+	text-decoration: none;
+	color: #ffffff;
+	margin: 5px;
+}
+
+div.top_inside>h2:nth-of-type(2) {
+	float: right;
+	margin: 5px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+div.page {
+	background-image: url("/img/note.png");
+	background-size: 900px auto;
+	background-repeat: no-repeat;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0px auto;
+	width: 900px;
+	height: 600px;
+	overflow: hidden;
+	padding-top: 20px;
+	margin-top: 25px;
+}
+
+div.title {
+	text-align: right;
+	font-size: 1.4em;
+	margin-right: 50px;
+	float: right;
+}
+
+div.polaroid {
+	background-image: url("/img/polaroid.png");
+	background-size: 400px auto;
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 500px;
+	margin-left: 30px;
+	float: left;
 	
 }
 
-#formArea input [type = "file"]{
-	text-align: right;
-	margin: 0 auto;
+div.picture {
+	text-align: center;
+	width: 262px;
+	height: 270px;
+	margin-left: 72px;
+	margin-top: 70px;
+	position: relative;
+}
+
+div.picture p {
+	color: white;
+	font-size: 100px;
+	margin: auto;
+	position: absolute;
+	top: 75px;
+	left: 120px;
+}
+
+div.picture>img {
+	max-width: 262px;
+	max-height: 270px;;
+	margin: auto;
+	/* margin-top:5px; */
+}
+
+div.right_page {
+	float: right;
+	width: 400px;
+	margin-right: 20px;
+}
+
+button.modify delete {
+	float: right;
 }
