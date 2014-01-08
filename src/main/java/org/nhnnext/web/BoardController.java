@@ -65,9 +65,17 @@ public class BoardController {
 	@RequestMapping(value = "/write", method=RequestMethod.POST)
 	public String write(Board board, MultipartFile file, HttpSession session) {
 		String fileName = FileUploader.upload(file);
-		board.setFileName(fileName);
+		if(fileName != null && fileName != "") {
+			board.setFileName(fileName);
+		} else {
+			
+			if(board.getId() > 0) {
+				Board modifyBoard = boardRepository.findOne(board.getId());
+				board.setFileName(modifyBoard.getFileName());
+			}
+		}
 		//여기에서 세션이용해서 유저 아이디를 찾아서 넣는다. 
-		String user = (String) session.getAttribute("userId");
+		String user = (String) session.getAttribute("userId");//강제 캐스팅은, 스트링도 오브젝트라서?-_-
 		board.setUser(user);
 		Board savedBoard = boardRepository.save(board);
 		log.debug("board : {}", board);
@@ -88,7 +96,7 @@ public class BoardController {
 		Board findedBoard = boardRepository.findOne(id);
 		model.addAttribute("board", findedBoard);
 //		model.addAttribute("modify", 1);
-		return "form";
+		return "write";
 	}
 	
 	@RequestMapping("/{id}/delete")
